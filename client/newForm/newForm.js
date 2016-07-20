@@ -15,6 +15,6 @@ Template.newForm.events({
     Session.set( 'quote', quote);
     Session.set( 'gender', gender);
     Session.set( 'githublink', githublink);
-    Router.go('/${firstName}');
+    Router.go(`/${firstName}`);
   }
 });
