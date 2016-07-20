@@ -1,15 +1,20 @@
 import { Template } from 'meteor/templating';
 import './newForm.html'
-Template.newform.helpers({
+Template.newForm.events({
   'submit form': (event, template) => {
     event.preventDefault();
 
 
     const firstName = template.find("#firstName").value;
     const lastName = template.find("#lastName").value;
-    const Quote = template.find("#Quote").value;
-    const Gender = template.find("#gender").value;
+    const quote = template.find("#quote").value;
+    const gender = template.find("#gender").value;
     const githublink = template.find("#githubLink").value;
-    console.log(firstName);
+    Session.set( 'firstName', firstName);
+    Session.set( 'lastName', lastName);
+    Session.set( 'quote', quote);
+    Session.set( 'gender', gender);
+    Session.set( 'githublink', githublink);
+    Router.go('/${firstName}');
   }
 });
